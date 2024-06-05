@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Kitaplığım-Kişisel</ion-title>
+    <ion-button (click)="cikis()" slot="end" shape="round">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Anasayfaya dön
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div *ngIf="eslesen">
+
+  <ion-card *ngFor="let item of eslesen"  (click)="detayGoster(item)">
+    <ion-card-header>
+      <ion-card-title>{{item.bas}}</ion-card-title>
+    </ion-card-header>
+  
+    
+    <ion-card-content *ngIf="item.yazi!.length>=100">
+      {{item.yazi?.substring(0,100)}}...
+     </ion-card-content>
+   
+   <ion-card-content *ngIf="item.yazi!.length<100">
+     {{item.yazi}}
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

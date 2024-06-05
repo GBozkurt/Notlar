@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Kitaplığım-Ekle</ion-title>
+    <ion-button (click)="cikis()" slot="end" shape="round">
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Anasayfaya dön
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input label="Başlık:" [(ngModel)]="yaziData.baslik"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="yaziData.text"
+      placeholder="Bir şeyler yaz..."
+      [autoGrow]="true">
+    </ion-textarea>
+  </ion-item>
+  <div *ngIf="adi">
+    <ion-item>
+      <ion-label>Yazar: {{adi.ad}}</ion-label>
+    </ion-item>
+  </div>
+  
+  <ion-button (click)="gonder()" expand="block" shape="round" style="padding-top: 10px;">
+    Ekle
+  </ion-button>
+    
+</ion-content>

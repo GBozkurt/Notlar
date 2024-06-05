@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Kitaplığım
+    </ion-title>
+    <ion-button (click)="cikis()" slot="end">
+      <ion-icon slot="end" name="exit"></ion-icon>
+      Çıkış yap
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngFor="let item of yazilar"  (click)="detayGoster(item)">
+    <ion-card-header>
+      <ion-card-title>{{item.bas}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content *ngIf="item.yazi!.length>=100">
+     {{item.yazi?.substring(0,100)}}...
+    </ion-card-content>
+  
+  <ion-card-content *ngIf="item.yazi!.length<100">
+    {{item.yazi}}
+   </ion-card-content>
+ </ion-card>
+
+  
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      
+      <ion-fab-button >
+        <ion-icon name="chevron-up-circle"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button>
+          <ion-icon name="add" (click)="yaziYazdir()"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button >
+          <ion-icon name="create" (click)="kisiselGit()"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Kitaplığım</ion-title>
+    <ion-button (click)="cikis()" slot="end" shape="round"> 
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      Anasayfaya dön
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="yazi">
+    <ion-item>
+      <h2 class="ion-align-items-center"><ion-input type="text" [(ngModel)]="yazi.bas"></ion-input></h2>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]="yazi.yazi"
+        [autoGrow]="true">
+      </ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Yazar: {{yazi.ad}}</ion-label>
+    </ion-item>
+  </div>
+  <div *ngIf="yazi && adi2">
+  <ion-button (click)="yaziGuncelle()" expand="full"shape="round" *ngIf="yazi.email==adi2.email">
+    Güncelle
+    <ion-icon slot="start" name="save"></ion-icon>
+  </ion-button>
+  <ion-button (click)="yaziSil()" expand="full"shape="round" fill="clear" *ngIf="yazi.email==adi2.email">
+    Sil
+    <ion-icon slot="start" name="trash"></ion-icon>
+  </ion-button>
+  </div>
+</ion-content>
